@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using Newtonsoft.Json;
+using Utilities;
 
 namespace HackerNewsDataAPI.Models
 {
+    /// <summary>
+    /// The item returned from the /user/ call.  All fields except ID, Karma and Create are optional
+    /// </summary>
     [Serializable]
-    public class User
+    public class HackerNewsUser
     {
         /// <summary>
         /// id The user's unique username. Case-sensitive. Required. 
@@ -21,6 +24,7 @@ namespace HackerNewsDataAPI.Models
         /// <summary>
         /// created Creation date of the user, in Unix Time.
         /// </summary>
+        [JsonConverter(typeof(MicrosecondEpochConverter))]
         public DateTime? Created { get; set; }
 
         /// <summary>

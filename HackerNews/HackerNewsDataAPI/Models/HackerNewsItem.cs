@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using Newtonsoft.Json;
+using Utilities;
 
 namespace HackerNewsDataAPI.Models
 {
+    /// <summary>
+    /// The item returned from the /item/ call.  All fields except ID are optional
+    /// </summary>
     [Serializable]
-    public class Item
+    public class HackerNewsItem
     {
         /// <summary>
         /// id The item's unique id. 
@@ -31,6 +34,7 @@ namespace HackerNewsDataAPI.Models
         /// <summary>
         /// time Creation date of the item, in Unix Time.
         /// </summary>
+        [JsonConverter(typeof(MicrosecondEpochConverter))]
         public DateTime? Time { get; set; }
 
         /// <summary>

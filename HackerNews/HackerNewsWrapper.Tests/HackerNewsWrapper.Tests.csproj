@@ -144,12 +144,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HackerNewsWrapper\HackerNewsWrapper.csproj">
-      <Project>{964F271C-047B-4C0E-8A47-A631990F5905}</Project>
-      <Name>HackerNewsWrapper</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>

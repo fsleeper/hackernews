@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using Newtonsoft.Json.Serialization;
 
 namespace HackerNewsAPI
 {
@@ -10,6 +11,8 @@ namespace HackerNewsAPI
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            // Added to clean up the swagger output
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new DefaultContractResolver { IgnoreSerializableAttribute = true };
 
             // Web API routes
             config.MapHttpAttributeRoutes();

@@ -193,12 +193,15 @@
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="BestStoryEngine.cs" />
-    <Compile Include="Controllers\HackerNewsController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BestStoriesController.cs" />
+    <Compile Include="Controllers\ItemController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BestStoryInfo.cs" />
+    <Compile Include="Models\HackerNewsItem.cs" />
+    <Compile Include="Models\HackerNewsUser.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -214,10 +217,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HackerNewsWrapper\HackerNewsWrapper.csproj">
-      <Project>{964f271c-047b-4c0e-8a47-a631990f5905}</Project>
-      <Name>HackerNewsWrapper</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Utilities\Utilities.csproj">
       <Project>{E3CD01CD-9FA2-44B2-8E60-2DC4734343FA}</Project>
       <Name>Utilities</Name>
