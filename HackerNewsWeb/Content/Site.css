@@ -34,3 +34,16 @@ textarea {
         padding: 10px 15px;
     }
 }
+
+.table-striped>tbody>tr:nth-child(even)>td, 
+.table-striped>tbody>tr:nth-child(even)>th {
+    background-color: blue; 
+}
+
+.table-hover tbody tr:hover td {
+    background-color: aqua;
+}
+
+.body-content {
+    padding-top: 15px;
+}

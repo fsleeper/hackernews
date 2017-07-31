@@ -15,11 +15,16 @@ using Swashbuckle.Swagger.Annotations;
 
 namespace HackerNewsAPI.Controllers
 {
+    // By the nature of the wrapped requests, in the event of an error the caller will get an empty list back or a default item.
+
     public class BestStoriesController : ApiController
     {
         private static readonly ILog Log = LogManager.GetLogger<BestStoriesController>();
 
-        // GET api/values
+        /// <summary>
+        /// This method retrieves the list of best story ids
+        /// </summary>
+        /// <returns>The list of story ids</returns>
         [SwaggerOperation("GetBestStories")]
         [HttpGet]
         [Route("api/GetAllStoryIds")]
@@ -32,7 +37,10 @@ namespace HackerNewsAPI.Controllers
             return result;
         }
 
-        // GET api/values
+        /// <summary>
+        /// This method retrieves the detailed information for the passed story id
+        /// </summary>
+        /// <returns>The detailed information</returns>
         [SwaggerOperation("GetBestStoryInfo")]
         [HttpGet]
         [Route("api/GetStory/{id}")]
@@ -45,7 +53,10 @@ namespace HackerNewsAPI.Controllers
             return result;
         }
 
-        // GET api/values
+        /// <summary>
+        /// This method retrieves retrieves the list of detailed story information for the best stories
+        /// </summary>
+        /// <returns>The list of story ids</returns>
         [SwaggerOperation("GetAllBestStoriesInfo")]
         [HttpGet]
         [Route("api/GetAllStories")]
