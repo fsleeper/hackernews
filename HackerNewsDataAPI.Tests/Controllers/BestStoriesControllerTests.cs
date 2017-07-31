@@ -19,7 +19,7 @@ namespace HackerNewsDataAPI.Tests.Controllers
         public void BestStoriesGetAsyncTest()
         {
             var controller = new BestStoriesController();
-            var data = controller.GetBestStoriesAsync().Result;
+            var data = controller.GetBestStories().Result;
 
             Assert.IsNotNull(data);
             Assert.IsTrue(data.Count() != 0);
@@ -30,9 +30,12 @@ namespace HackerNewsDataAPI.Tests.Controllers
         {
             var controller = new BestStoriesController();
             var controller2 = new ItemController();
-            var data = controller.GetBestStoriesAsync().Result;
+            var data = controller.GetBestStories().Result;
 
-            var result = Task.WhenAll(data.Select(id => controller2.GetItemAsync(id)).ToArray()).Result;
+            var result = Task.WhenAll(data.Select(id => controller2.GetItem(id)).ToArray()).Result;
+
+            Assert.IsNotNull(data);
+            Assert.IsTrue(data.Count() == result.Count());
         }
     }
 }

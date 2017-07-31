@@ -1,0 +1,3 @@
+2017-07-30 06:47:17,885 | DEBUG | HackerNewsDataAPI.Controllers.ItemController | Request for GetAsync(8899)
+2017-07-30 06:48:51,776 | DEBUG | HackerNewsDataAPI.Controllers.ItemController | Request for GetAsync(8895)
+2017-07-30 06:50:42,098 | DEBUG | HackerNewsDataAPI.Controllers.ItemController | Request for GetAsync(88977)

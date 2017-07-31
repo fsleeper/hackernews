@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using Common.Logging;
+using HackerNewsAPI;
 using HackerNewsAPI.Models;
 using Newtonsoft.Json;
 using StackExchange.Redis;
@@ -26,13 +27,19 @@ namespace HackerNewsDataAPI
             CacheConnection = ConnectionMultiplexer.Connect(cacheConnectionString);
         }
 
-        public static IEnumerable<Task<BestStoryInfo>> GetBestStoriesInfoAsync(IEnumerable<int> ids)
+        public static async Task<IEnumerable<BestStoryInfo>> GetBestStoriesInfo()
         {
-            return ids.Select(GetBestStoryInfoAsync).ToList();
+            // Get the list of best stories
+            var ids = await GetBestStories();
+
+            var result = await Task.WhenAll(ids.Select(GetBestStoryInfo).ToArray());
+
+            return result.ToList();
         }
 
-        public static async Task<BestStoryInfo> GetBestStoryInfoAsync(int id)
+        public static async Task<BestStoryInfo> GetBestStoryInfo(int id)
         {
+            /*
             try
             {
                 if (CacheDB == null)
@@ -49,33 +56,35 @@ namespace HackerNewsDataAPI
             catch (Exception)
             {
             }
+            */
 
             var dataApi = new HackerNewsAPI.HackerNewsDataAPI(new Uri(HackerNewsDataAPI));
 
-            var item = await dataApi.GetItemAsyncWithHttpMessagesAsync(id);
+            var item = await dataApi.GetItemAsync(id);
 
             var bestStoryInfo = new BestStoryInfo
             {
-                Id = item.Body.ID.GetValueOrDefault(0),
-                By = item.Body.By,
-                Title = item.Body.Title
+                Id = item.ID.GetValueOrDefault(0),
+                By = item.By,
+                Title = item.Title
             };
 
+            /*
             var objectAsString = JsonConvert.SerializeObject(bestStoryInfo);
 
             CacheDB?.StringSet(id.ToString(), objectAsString, null, When.Always);
-
+*/
             return bestStoryInfo;
         }
 
-        public static async Task<IEnumerable<int>> GetBestStoriesAsync()
+        public static async Task<IEnumerable<int>> GetBestStories()
         {
             var dataApi = new HackerNewsAPI.HackerNewsDataAPI(new Uri(HackerNewsDataAPI));
-            var item = await dataApi.GetBestStoriesAsyncWithHttpMessagesAsync();
+            var item = await dataApi.GetBestStoriesAsync();
 
             var items = new List<int>();
 
-            items.AddRange(item.Body.Where(e => e.GetValueOrDefault(0) > 0).Cast<int>());
+            items.AddRange(item.Where(e => e.GetValueOrDefault(0) > 0).Cast<int>());
             return items;
         }
     }

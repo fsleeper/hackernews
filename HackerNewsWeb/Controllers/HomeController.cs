@@ -12,7 +12,7 @@ namespace HackerNewsWeb.Controllers
         {
             var url = ConfigurationManager.AppSettings["HackerNewsAPI"];
             var request = new HackerNewsAPI(new Uri(url));
-            var data = request.GetAllBestStoriesInfoAsyncWithHttpMessagesAsync().Result;
+            var data = request.GetAllBestStoriesInfo();
             return View(data);
         }
     }

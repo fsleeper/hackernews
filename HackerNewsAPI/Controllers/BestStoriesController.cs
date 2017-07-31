@@ -20,42 +20,40 @@ namespace HackerNewsAPI.Controllers
         private static readonly ILog Log = LogManager.GetLogger<BestStoriesController>();
 
         // GET api/values
-        [SwaggerOperation("GetBestStoriesAsync")]
+        [SwaggerOperation("GetBestStories")]
         [HttpGet]
         [Route("api/GetAllStoryIds")]
-        public async Task<IEnumerable<int>> GetBestStoriesAsync()
+        public async Task<IEnumerable<int>> GetBestStories()
         {
             Log.Debug("Request for GetBestStories()");
 
-            var result = await BestStoryEngine.GetBestStoriesAsync();
+            var result = await BestStoryEngine.GetBestStories();
 
             return result;
         }
 
         // GET api/values
-        [SwaggerOperation("GetBestStoryInfoAsync")]
+        [SwaggerOperation("GetBestStoryInfo")]
         [HttpGet]
         [Route("api/GetStory/{id}")]
-        public async Task<BestStoryInfo> GetBestStoryInfoAsync(int id)
+        public async Task<BestStoryInfo> GetBestStoryInfo(int id)
         {
             Log.Debug("Request for GetBestStory()");
 
-            var result = await BestStoryEngine.GetBestStoryInfoAsync(id);
+            var result = await BestStoryEngine.GetBestStoryInfo(id);
 
             return result;
         }
 
         // GET api/values
-        [SwaggerOperation("GetAllBestStoriesInfoAsync")]
+        [SwaggerOperation("GetAllBestStoriesInfo")]
         [HttpGet]
         [Route("api/GetAllStories")]
-        public async Task<IEnumerable<BestStoryInfo>> GetAllBestStoriesInfoAsync()
+        public async Task<IEnumerable<BestStoryInfo>> GetAllBestStoriesInfo()
         {
             Log.Debug("Request for GetBestStories()");
 
-            var ids = await BestStoryEngine.GetBestStoriesAsync();
-
-            var result = Task.WhenAll(ids.Select(BestStoryEngine.GetBestStoryInfoAsync).ToArray()).Result;
+            var result = await BestStoryEngine.GetBestStoriesInfo();
 
             return result;
         }

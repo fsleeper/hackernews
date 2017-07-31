@@ -15,11 +15,11 @@ namespace HackerNewsDataAPI.Controllers
     {
         private static readonly ILog Log = LogManager.GetLogger<BestStoriesController>();
 
-        [SwaggerOperation("GetBestStoriesAsync")]
+        [SwaggerOperation("GetBestStories")]
         [HttpGet]
-        public async Task<IEnumerable<int>> GetBestStoriesAsync()
+        public async Task<IEnumerable<int>> GetBestStories()
         {
-            Log.Debug("Request for GetBestStoriesAsync()");
+            Log.Debug("Request for GetBestStories()");
 
             List<int> result;
             var client = Utilities.WebRequest.DefaultWebClient;

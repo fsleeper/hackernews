@@ -20,9 +20,9 @@ namespace HackerNewsWeb
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static IList<int?> GetBestStoriesAsync(this IHackerNewsAPI operations)
+            public static IList<int?> GetBestStories(this IHackerNewsAPI operations)
             {
-                return Task.Factory.StartNew(s => ((IHackerNewsAPI)s).GetBestStoriesAsyncAsync(), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IHackerNewsAPI)s).GetBestStoriesAsync(), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -31,9 +31,9 @@ namespace HackerNewsWeb
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<int?>> GetBestStoriesAsyncAsync(this IHackerNewsAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<int?>> GetBestStoriesAsync(this IHackerNewsAPI operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetBestStoriesAsyncWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetBestStoriesWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -44,9 +44,9 @@ namespace HackerNewsWeb
             /// </param>
             /// <param name='id'>
             /// </param>
-            public static BestStoryInfo GetBestStoryInfoAsync(this IHackerNewsAPI operations, int id)
+            public static BestStoryInfo GetBestStoryInfo(this IHackerNewsAPI operations, int id)
             {
-                return Task.Factory.StartNew(s => ((IHackerNewsAPI)s).GetBestStoryInfoAsyncAsync(id), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IHackerNewsAPI)s).GetBestStoryInfoAsync(id), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -57,9 +57,9 @@ namespace HackerNewsWeb
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<BestStoryInfo> GetBestStoryInfoAsyncAsync(this IHackerNewsAPI operations, int id, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<BestStoryInfo> GetBestStoryInfoAsync(this IHackerNewsAPI operations, int id, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetBestStoryInfoAsyncWithHttpMessagesAsync(id, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetBestStoryInfoWithHttpMessagesAsync(id, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -68,9 +68,9 @@ namespace HackerNewsWeb
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static IList<BestStoryInfo> GetAllBestStoriesInfoAsync(this IHackerNewsAPI operations)
+            public static IList<BestStoryInfo> GetAllBestStoriesInfo(this IHackerNewsAPI operations)
             {
-                return Task.Factory.StartNew(s => ((IHackerNewsAPI)s).GetAllBestStoriesInfoAsyncAsync(), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IHackerNewsAPI)s).GetAllBestStoriesInfoAsync(), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -79,9 +79,9 @@ namespace HackerNewsWeb
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<BestStoryInfo>> GetAllBestStoriesInfoAsyncAsync(this IHackerNewsAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<BestStoryInfo>> GetAllBestStoriesInfoAsync(this IHackerNewsAPI operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetAllBestStoriesInfoAsyncWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetAllBestStoriesInfoWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

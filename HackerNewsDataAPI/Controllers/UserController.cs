@@ -18,11 +18,11 @@ namespace HackerNewsDataAPI.Controllers
     {
         private static readonly ILog Log = LogManager.GetLogger<UserController>();
 
-        [SwaggerOperation("GetUserAsync")]
+        [SwaggerOperation("GetUser")]
         [HttpGet]
-        public async Task<User> GetUserAsync(string userId)
+        public async Task<User> GetUser(string userId)
         {
-            Log.Debug($"Request for GetUserAsync({userId})");
+            Log.Debug($"Request for GetUser({userId})");
 
             var result = new User();
             var client = Utilities.WebRequest.DefaultWebClient;

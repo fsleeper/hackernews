@@ -16,7 +16,7 @@ namespace HackerNewsDataAPI.Tests.Controllers
         public void UserGetAsyncTest()
         {
             var controller = new UserController();
-            var data = controller.GetUserAsync("thefox").Result;
+            var data = controller.GetUser("thefox").Result;
 
             Assert.IsNotNull(data);
             Assert.IsTrue(data.ID.Equals("thefox", StringComparison.InvariantCultureIgnoreCase));

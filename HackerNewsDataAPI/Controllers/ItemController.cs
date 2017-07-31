@@ -19,11 +19,11 @@ namespace HackerNewsDataAPI.Controllers
     {
         private static readonly ILog Log = LogManager.GetLogger<ItemController>();
 
-        [SwaggerOperation("GetItemAsync")]
+        [SwaggerOperation("GetItem")]
         [HttpGet]
-        public async Task<Item> GetItemAsync(int id)
+        public async Task<Item> GetItem(int id)
         {
-            Log.Debug($"Request for GetItemAsync({id})");
+            Log.Debug($"Request for GetItem({id})");
 
             var result = new Item();
             var client = Utilities.WebRequest.DefaultWebClient;

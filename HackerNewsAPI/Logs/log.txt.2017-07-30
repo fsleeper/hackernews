@@ -1,0 +1,2 @@
+2017-07-30 07:36:11,147 | DEBUG | HackerNewsAPI.Controllers.BestStoriesController | Request for GetBestStories()
+2017-07-30 07:36:13,530 | DEBUG | HackerNewsAPI.Controllers.BestStoriesController | Retrieved 200 records

@@ -15,7 +15,7 @@ namespace HackerNewsDataAPI.Tests.Controllers
         public void ItemGetAsyncTest()
         {
             var controller = new ItemController();
-            var data = controller.GetItemAsync(8863).Result;
+            var data = controller.GetItem(8863).Result;
 
             Assert.IsNotNull(data);
             Assert.IsTrue(data.ID == 8863);

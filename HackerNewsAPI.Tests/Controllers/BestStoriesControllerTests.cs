@@ -16,7 +16,7 @@ namespace HackerNewsAPI.Tests.Controllers
         public void BestStoriesGetAsyncTest()
         {
             var controller = new BestStoriesController();
-            var data = controller.GetBestStoriesAsync().Result;
+            var data = controller.GetBestStories().Result;
 
             Assert.IsNotNull(data);
             Assert.IsTrue(data.Count() != 0);   
@@ -26,7 +26,7 @@ namespace HackerNewsAPI.Tests.Controllers
         public void GetBestStoryInfoAsync()
         {
             var controller = new BestStoriesController();
-            var data = controller.GetBestStoryInfoAsync(89953).Result;
+            var data = controller.GetBestStoryInfo(89953).Result;
 
             Assert.IsNotNull(data);
             Assert.IsTrue(data.Id == 89953);
@@ -36,7 +36,7 @@ namespace HackerNewsAPI.Tests.Controllers
         public void GetAllBestStoryInfoAsyncTest()
         {
             var controller = new BestStoriesController();
-            var data = controller.GetAllBestStoriesInfoAsync().Result;
+            var data = controller.GetAllBestStoriesInfo().Result;
 
             Assert.IsNotNull(data);
             Assert.IsTrue(data.Any() );

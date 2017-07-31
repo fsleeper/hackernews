@@ -20,9 +20,9 @@ namespace HackerNewsAPI
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static IList<int?> GetBestStoriesAsync(this IHackerNewsDataAPI operations)
+            public static IList<int?> GetBestStories(this IHackerNewsDataAPI operations)
             {
-                return Task.Factory.StartNew(s => ((IHackerNewsDataAPI)s).GetBestStoriesAsyncAsync(), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IHackerNewsDataAPI)s).GetBestStoriesAsync(), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -31,9 +31,9 @@ namespace HackerNewsAPI
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<int?>> GetBestStoriesAsyncAsync(this IHackerNewsDataAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<int?>> GetBestStoriesAsync(this IHackerNewsDataAPI operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetBestStoriesAsyncWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetBestStoriesWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -44,9 +44,9 @@ namespace HackerNewsAPI
             /// </param>
             /// <param name='id'>
             /// </param>
-            public static Item GetItemAsync(this IHackerNewsDataAPI operations, int id)
+            public static Item GetItem(this IHackerNewsDataAPI operations, int id)
             {
-                return Task.Factory.StartNew(s => ((IHackerNewsDataAPI)s).GetItemAsyncAsync(id), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IHackerNewsDataAPI)s).GetItemAsync(id), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -57,9 +57,9 @@ namespace HackerNewsAPI
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Item> GetItemAsyncAsync(this IHackerNewsDataAPI operations, int id, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Item> GetItemAsync(this IHackerNewsDataAPI operations, int id, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetItemAsyncWithHttpMessagesAsync(id, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetItemWithHttpMessagesAsync(id, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -70,9 +70,9 @@ namespace HackerNewsAPI
             /// </param>
             /// <param name='userId'>
             /// </param>
-            public static User GetUserAsync(this IHackerNewsDataAPI operations, string userId)
+            public static User GetUser(this IHackerNewsDataAPI operations, string userId)
             {
-                return Task.Factory.StartNew(s => ((IHackerNewsDataAPI)s).GetUserAsyncAsync(userId), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IHackerNewsDataAPI)s).GetUserAsync(userId), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -83,9 +83,9 @@ namespace HackerNewsAPI
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<User> GetUserAsyncAsync(this IHackerNewsDataAPI operations, string userId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<User> GetUserAsync(this IHackerNewsDataAPI operations, string userId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetUserAsyncWithHttpMessagesAsync(userId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetUserWithHttpMessagesAsync(userId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
