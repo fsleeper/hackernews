@@ -15,3 +15,5 @@
 2017-07-31 15:26:46,210 | DEBUG | HackerNewsAPI.Controllers.BestStoriesController | Request for GetBestStories()
 2017-07-31 15:29:50,421 | DEBUG | HackerNewsAPI.Controllers.BestStoriesController | Request for GetBestStories()
 2017-07-31 15:30:28,607 | DEBUG | HackerNewsAPI.Controllers.BestStoriesController | Request for GetBestStories()
+2017-07-31 15:46:06,326 | DEBUG | HackerNewsAPI.Controllers.BestStoriesController | Request for GetBestStories()
+2017-07-31 15:46:56,119 | DEBUG | HackerNewsAPI.Controllers.BestStoriesController | Request for GetBestStories()

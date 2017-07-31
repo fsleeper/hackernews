@@ -21,10 +21,11 @@ namespace HackerNewsWeb
                 "~/Scripts/jquery.unobtrusive*",
                 "~/Scripts/jquery.validate*"));
 
+            /*
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 "~/Scripts/jquery-3.1.1.min.js",
                 "~/Scripts/DataTables/jquery.dataTables.min.js"));
-
+            8?
             /*
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                 "~/Scripts/angular*"));
@@ -44,10 +45,17 @@ namespace HackerNewsWeb
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/respond.js"));
 
+            /*
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                "~/Content/bootstrap.css",
+                "~/Content/bootstrap-theme.css",
+                "~/Content/DataTables/css/jquery.dataTables.min.css",
+                "~/Content/Site.css"));
+            */
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                  "~/Content/bootstrap.css",
                  "~/Content/bootstrap-theme.css",
-                 "~/Content/DataTables/css/jquery.dataTables.min.css",
                  "~/Content/Site.css"));
         }
     }

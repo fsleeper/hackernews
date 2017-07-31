@@ -409,3 +409,8 @@
 2017-07-31 15:30:29,298 | DEBUG | HackerNewsDataAPI.Controllers.ItemController | Request for GetItem(14884451)
 2017-07-31 15:30:29,301 | DEBUG | HackerNewsDataAPI.Controllers.ItemController | Request for GetItem(14881448)
 2017-07-31 15:30:29,351 | DEBUG | HackerNewsDataAPI.Controllers.ItemController | Request for GetItem(14876685)
+2017-07-31 15:46:06,809 | DEBUG | HackerNewsDataAPI.Controllers.BestStoriesController | Request for GetBestStories()
+2017-07-31 15:46:07,251 | DEBUG | HackerNewsDataAPI.Controllers.BestStoriesController | Retrieved 200 records
+2017-07-31 15:46:24,778 | DEBUG | HackerNewsDataAPI.Controllers.ItemController | Request for GetItem(14891968)
+2017-07-31 15:46:56,123 | DEBUG | HackerNewsDataAPI.Controllers.BestStoriesController | Request for GetBestStories()
+2017-07-31 15:46:56,405 | DEBUG | HackerNewsDataAPI.Controllers.BestStoriesController | Retrieved 200 records

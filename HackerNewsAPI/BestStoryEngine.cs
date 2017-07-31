@@ -39,7 +39,6 @@ namespace HackerNewsDataAPI
 
         public static async Task<BestStoryInfo> GetBestStoryInfo(int id)
         {
-            /*
             try
             {
                 if (CacheDB == null)
@@ -56,7 +55,6 @@ namespace HackerNewsDataAPI
             catch (Exception)
             {
             }
-            */
 
             var dataApi = new HackerNewsAPI.HackerNewsDataAPI(new Uri(HackerNewsDataAPI));
 
@@ -69,11 +67,10 @@ namespace HackerNewsDataAPI
                 Title = item.Title
             };
 
-            /*
             var objectAsString = JsonConvert.SerializeObject(bestStoryInfo);
 
             CacheDB?.StringSet(id.ToString(), objectAsString, null, When.Always);
-*/
+
             return bestStoryInfo;
         }
 

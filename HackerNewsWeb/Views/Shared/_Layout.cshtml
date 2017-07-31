@@ -6,6 +6,11 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @Styles.Render("~/Content/css")
+
+    @*<link rel="stylesheet" href="https://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">*@
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.css">
+
     @Scripts.Render("~/bundles/modernizr")
 </head>
 
@@ -41,8 +46,14 @@
         var apiEndpoint = "@System.Configuration.ConfigurationManager.AppSettings["HackerNewsAPI"]";
     </script>
 
-    @Scripts.Render("~/bundles/jquery")
-@*   @Scripts.Render("~/bundles/angular") *@
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> // JQuery Reference
+    <script src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.js"></script>
+
+    @*
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/angular")
+    *@
     @Scripts.Render("~/bundles/bootstrap")
 
 
