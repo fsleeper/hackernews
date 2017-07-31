@@ -13,7 +13,10 @@ namespace HackerNewsDataAPI
 {
     public class BestStoryEngine
     {
-        public static ConnectionMultiplexer CacheConnection;
+        private static ConnectionMultiplexer CacheConnection;
+
+        private static IDatabase CacheDB = null;
+
         private static readonly ILog Log = LogManager.GetLogger<BestStoryEngine>();
         private static string HackerNewsDataAPI => ConfigurationManager.AppSettings["HackerNewsDataAPI"];
 
@@ -23,30 +26,44 @@ namespace HackerNewsDataAPI
             CacheConnection = ConnectionMultiplexer.Connect(cacheConnectionString);
         }
 
-        public static async Task<BestStoryInfo> GetBestStoryAsync(int id)
+        public static IEnumerable<Task<BestStoryInfo>> GetBestStoriesInfoAsync(IEnumerable<int> ids)
         {
-            var cacheDB = CacheConnection.GetDatabase();
+            return ids.Select(GetBestStoryInfoAsync).ToList();
+        }
 
-            var keyExists = cacheDB.KeyExists(id.ToString());
-            if (keyExists)
+        public static async Task<BestStoryInfo> GetBestStoryInfoAsync(int id)
+        {
+            try
             {
-                var itemFromCache = cacheDB.StringGet(id.ToString());
-                var result = JsonConvert.DeserializeObject<BestStoryInfo>(itemFromCache);
-                return result;
-            }                
+                if (CacheDB == null)
+                    CacheDB = CacheConnection.GetDatabase();
+
+                var keyExists = CacheDB.KeyExists(id.ToString());
+                if (keyExists)
+                {
+                    var itemFromCache = CacheDB.StringGet(id.ToString());
+                    var result = JsonConvert.DeserializeObject<BestStoryInfo>(itemFromCache);
+                    return result;
+                }
+            }
+            catch (Exception)
+            {
+            }
 
             var dataApi = new HackerNewsAPI.HackerNewsDataAPI(new Uri(HackerNewsDataAPI));
+
             var item = await dataApi.GetItemAsyncWithHttpMessagesAsync(id);
 
             var bestStoryInfo = new BestStoryInfo
             {
-                ID = item.Body.ID.GetValueOrDefault(0),
+                Id = item.Body.ID.GetValueOrDefault(0),
                 By = item.Body.By,
                 Title = item.Body.Title
             };
 
             var objectAsString = JsonConvert.SerializeObject(bestStoryInfo);
-            cacheDB.StringSet(id.ToString(), objectAsString);
+
+            CacheDB?.StringSet(id.ToString(), objectAsString, null, When.Always);
 
             return bestStoryInfo;
         }

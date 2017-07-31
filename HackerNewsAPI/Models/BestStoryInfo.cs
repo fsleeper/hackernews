@@ -11,7 +11,7 @@ namespace HackerNewsAPI.Models
         /// <summary>
         /// id The item's unique id. 
         /// </summary>
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// by The username of the item's author. 

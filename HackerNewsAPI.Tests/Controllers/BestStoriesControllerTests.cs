@@ -19,17 +19,27 @@ namespace HackerNewsAPI.Tests.Controllers
             var data = controller.GetBestStoriesAsync().Result;
 
             Assert.IsNotNull(data);
-            Assert.IsTrue(data.Count() != 0);
+            Assert.IsTrue(data.Count() != 0);   
         }
 
         [TestMethod]
-        public void GetBestStoryAsyncTest()
+        public void GetBestStoryInfoAsync()
         {
             var controller = new BestStoriesController();
-            var data = controller.GetBestStoryAsync(89953).Result;
+            var data = controller.GetBestStoryInfoAsync(89953).Result;
 
             Assert.IsNotNull(data);
-            Assert.IsTrue(data.ID == 89953);
+            Assert.IsTrue(data.Id == 89953);
+        }
+
+        [TestMethod]
+        public void GetAllBestStoryInfoAsyncTest()
+        {
+            var controller = new BestStoriesController();
+            var data = controller.GetAllBestStoriesInfoAsync().Result;
+
+            Assert.IsNotNull(data);
+            Assert.IsTrue(data.Any() );
         }
     }
 }

@@ -22,6 +22,7 @@ namespace HackerNewsAPI.Controllers
         // GET api/values
         [SwaggerOperation("GetBestStoriesAsync")]
         [HttpGet]
+        [Route("api/GetAllStoryIds")]
         public async Task<IEnumerable<int>> GetBestStoriesAsync()
         {
             Log.Debug("Request for GetBestStories()");
@@ -32,15 +33,32 @@ namespace HackerNewsAPI.Controllers
         }
 
         // GET api/values
-        [SwaggerOperation("GetBestStoryAsync")]
+        [SwaggerOperation("GetBestStoryInfoAsync")]
         [HttpGet]
-        public async Task<BestStoryInfo> GetBestStoryAsync(int id)
+        [Route("api/GetStory/{id}")]
+        public async Task<BestStoryInfo> GetBestStoryInfoAsync(int id)
         {
             Log.Debug("Request for GetBestStory()");
 
-            var result = await BestStoryEngine.GetBestStoryAsync(id);
+            var result = await BestStoryEngine.GetBestStoryInfoAsync(id);
+
+            return result;
+        }
+
+        // GET api/values
+        [SwaggerOperation("GetAllBestStoriesInfoAsync")]
+        [HttpGet]
+        [Route("api/GetAllStories")]
+        public async Task<IEnumerable<BestStoryInfo>> GetAllBestStoriesInfoAsync()
+        {
+            Log.Debug("Request for GetBestStories()");
+
+            var ids = await BestStoryEngine.GetBestStoriesAsync();
+
+            var result = Task.WhenAll(ids.Select(BestStoryEngine.GetBestStoryInfoAsync).ToArray()).Result;
 
             return result;
         }
     }
 }
+    

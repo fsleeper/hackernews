@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -9,7 +10,10 @@ namespace HackerNewsWeb.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var url = ConfigurationManager.AppSettings["HackerNewsAPI"];
+            var request = new HackerNewsAPI(new Uri(url));
+            var data = request.GetAllBestStoriesInfoAsyncWithHttpMessagesAsync().Result;
+            return View(data);
         }
     }
 }
